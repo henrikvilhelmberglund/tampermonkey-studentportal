@@ -17,13 +17,14 @@
     element.scrollTop += amount;
   }
 
-  // Find the element you want to scroll (you might need to inspect the page's HTML to get the correct selector)
-  var targetElement = document.querySelector("#page");
-
-  // Scroll the target element by 386px when the page loads
-  if (targetElement) {
-    window.onload = function () {
+  // Function to handle the page's DOMContentLoaded event
+  function onPageLoaded() {
+    var targetElement = document.querySelector("#page");
+    if (targetElement) {
       scrollElementBy(targetElement, 386);
-    };
+    }
   }
+
+  // Attach the handler to the DOMContentLoaded event
+  document.addEventListener("DOMContentLoaded", onPageLoaded);
 })();
