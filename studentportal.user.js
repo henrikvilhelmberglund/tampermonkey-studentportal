@@ -3,9 +3,11 @@
 // @namespace    https://github.com/henrikvilhelmberglund/
 // @version      0.1
 // @author       henrikvilhelmberglund
-// @description  Automatically scrolls the page by 386px on specific URLs
+// @description  Automatically scrolls the page by 410px on specific URLs
 // @match        https://studentportal.nackademin.se/mod/page/view.php*
-// @require      file:///C:/Github/tampermonkey-scripts/tampermonkey-studentportal/studentportal.user.js
+// @match        https://studentportal.nackademin.se/mod/url/view.php*
+// @downloadURL  https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
+// @updateURL    https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
 // ==/UserScript==
 
 (function () {
@@ -16,14 +18,10 @@
     element.scrollTop += amount;
   }
 
-  // Function to handle the page's DOMContentLoaded event
-  function onPageLoaded() {
+  window.onload = function () {
     var targetElement = document.querySelector("#page");
     if (targetElement) {
-      scrollElementBy(targetElement, 386);
+      scrollElementBy(targetElement, 410);
     }
-  }
-
-  // Attach the handler to the DOMContentLoaded event
-  document.addEventListener("DOMContentLoaded", onPageLoaded);
+  };
 })();
