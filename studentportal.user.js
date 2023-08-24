@@ -4,7 +4,7 @@
 // @version      0.1
 // @author       henrikvilhelmberglund
 // @description  Automatically scrolls the page by 386px on specific URLs
-// @match        https://studentportal.nackademin.se/mod/(page|url)/view.php*
+// @match        https://studentportal.nackademin.se/mod/page/view.php*
 // @downloadURL  https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
 // @updateURL    https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
 // ==/UserScript==
