@@ -18,10 +18,28 @@
     element.scrollTop += amount;
   }
 
+  // Function to replace YouTube links with embedded video players
+  function embedYouTubeVideos() {
+    let youtubeLinks = document.querySelectorAll('a[href*="youtube.com"]');
+
+    youtubeLinks.forEach(function (link) {
+      let videoId = link.href.match(/v=([^&]+)/)[1];
+      if (videoId) {
+        let embedCode =
+          '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+          videoId +
+          '" frameborder="0" allowfullscreen></iframe>';
+        link.insertAdjacentHTML("afterend", embedCode);
+        link.remove();
+      }
+    });
+  }
+
   window.onload = function () {
-    var targetElement = document.querySelector("#page");
+    let targetElement = document.querySelector("#page");
     if (targetElement) {
       scrollElementBy(targetElement, 410);
     }
+    embedYouTubeVideos();
   };
 })();
