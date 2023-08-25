@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Auto Scroll Greasemonkey Script
 // @namespace    https://github.com/henrikvilhelmberglund/
-// @version      0.1
+// @version      0.11
 // @author       henrikvilhelmberglund
 // @description  Automatically scrolls the page by 410px on specific URLs
 // @match        https://studentportal.nackademin.se/mod/page/view.php*
 // @match        https://studentportal.nackademin.se/mod/url/view.php*
+// @match        https://studentportal.nackademin.se/course/view.php*
 // @downloadURL  https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
 // @updateURL    https://raw.githubusercontent.com/henrikvilhelmberglund/tampermonkey-studentportal/main/studentportal.user.js
 // ==/UserScript==
