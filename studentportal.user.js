@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Scroll Greasemonkey Script
 // @namespace    https://github.com/henrikvilhelmberglund/
-// @version      0.11
+// @version      0.12
 // @author       henrikvilhelmberglund
 // @description  Automatically scrolls the page by 410px on specific URLs
 // @match        https://studentportal.nackademin.se/mod/page/view.php*
@@ -21,10 +21,25 @@
 
   // Function to replace YouTube links with embedded video players
   function embedYouTubeVideos() {
-    let youtubeLinks = document.querySelectorAll('a[href*="youtube.com"]');
+    let youtubeLinks = document.querySelectorAll(
+      'a[href*="youtube.com"], a[href*="youtu.be"]'
+    );
 
     youtubeLinks.forEach(function (link) {
-      let videoId = link.href.match(/v=([^&]+)/)[1];
+      let videoId = "";
+
+      if (link.href.includes("youtube.com")) {
+        videoId = link.href.match(/v=([^&]+)/);
+        if (videoId) {
+          videoId = videoId[1];
+        }
+      } else if (link.href.includes("youtu.be")) {
+        videoId = link.href.match(/youtu.be\/([^?]+)/);
+        if (videoId) {
+          videoId = videoId[1];
+        }
+      }
+
       if (videoId) {
         let embedCode =
           '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
